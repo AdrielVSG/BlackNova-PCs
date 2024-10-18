@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montagem Personalizada - BlackNova PCs</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0c0c0c; /* Fundo escuro */
+            color: #f1f1f1; /* Texto claro */
+        }
+
+        header {
+            background-color: #1a1a1a; /* Cabeçalho escuro */
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #00ffcc; /* Cor do título */
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px;
+            background-color: #1a1a1a; /* Fundo da seção */
+        }
+
+        .opcoes-montagem {
+            margin: 20px;
+        }
+
+        .opcao {
+            background-color: #222; /* Fundo das opções */
+            border-radius: 8px;
+            margin: 15px 0;
+            padding: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .opcao:hover {
+            background-color: #333; /* Cor ao passar o mouse */
+        }
+
+        .componente {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #00ffcc; /* Borda verde */
+            border-radius: 5px;
+            background-color: #333; /* Fundo do select */
+            color: #f1f1f1; /* Texto do select */
+        }
+
+        .preco-total {
+            margin: 20px 0;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #00ffcc; /* Cor do preço total */
+        }
+
+        button {
+            background-color: #00ffcc; /* Cor do botão */
+            color: #222; /* Texto do botão */
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #00cc99; /* Cor do botão ao passar o mouse */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1a1a1a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>BlackNova PCs</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Voltar Para Opções de Montagem</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Montagem Personalizada</h2>
+            <p>Monte seu PC do jeito que você quiser, escolhendo os melhores componentes!</p>
+        </section>
+        
+        <hr>
+
+        <section class="descricao">
+            <p>Na BlackNova PCs, oferecemos a liberdade de montar um PC de acordo com suas necessidades específicas. Selecione os itens e crie seu PC ideal!</p>
+        </section>
+
+        <section class="opcoes-montagem">
+            <h2>Opções de Montagem Personalizada</h2>
+
+            <!-- Montagem Personalizada -->
+            <div class="opcao" onclick="mostrarConfigurador('personalizada')">
+                <h3>Configurar Montagem Personalizada</h3>
+                <form id="personalizada-configurador" class="configurador" style="display:none;">
+                    <div class="componente">
+                        <label for="personalizada-processador">Processador:</label>
+                        <select id="personalizada-processador" name="personalizada-processador" onchange="calcularPreco()">
+                            <option value="">Selecione</option>
+                            <option value="Intel Core i5" data-preco="2000">Intel Core i5 - R$ 2000</option>
+                            <option value="AMD Ryzen 5" data-preco="1800">AMD Ryzen 5 - R$ 1800</option>
+                            <option value="Intel Core i7" data-preco="3000">Intel Core i7 - R$ 3000</option>
+                            <option value="AMD Ryzen 7" data-preco="2900">AMD Ryzen 7 - R$ 2900</option>
+                        </select>
+                    </div>
+                    <div class="componente">
+                        <label for="personalizada-placa-mae">Placa-Mãe:</label>
+                        <select id="personalizada-placa-mae" name="personalizada-placa-mae" onchange="calcularPreco()">
+                            <option value="">Selecione</option>
+                            <option value="ASUS Prime" data-preco="1000">ASUS Prime - R$ 1000</option>
+                            <option value="Gigabyte B450" data-preco="900">Gigabyte B450 - R$ 900</option>
+                            <option value="MSI B550" data-preco="1100">MSI B550 - R$ 1100</option>
+                            <option value="ASUS ROG Strix" data-preco="1300">ASUS ROG Strix - R$ 1300</option>
+                        </select>
+                    </div>
+                    <div class="componente">
+                        <label for="personalizada-ram">Memória RAM:</label>
+                        <select id="personalizada-ram" name="personalizada-ram" onchange="calcularPreco()">
+                            <option value="">Selecione</option>
+                            <option value="16GB DDR4" data-preco="600">16GB DDR4 - R$ 600</option>
+                            <option value="32GB DDR4" data-preco="1200">32GB DDR4 - R$ 1200</option>
+                            <option value="64GB DDR4" data-preco="2400">64GB DDR4 - R$ 2400</option>
+                        </select>
+                    </div>
+                    <div class="componente">
+                        <label for="personalizada-gpu">Placa de Vídeo:</label>
+                        <select id="personalizada-gpu" name="personalizada-gpu" onchange="calcularPreco()">
+                            <option value="">Selecione</option>
+                            <option value="NVIDIA GTX 1660" data-preco="1500">NVIDIA GTX 1660 - R$ 1500</option>
+                            <option value="AMD RX 570" data-preco="1400">AMD RX 570 - R$ 1400</option>
+                            <option value="NVIDIA RTX 3050" data-preco="1700">NVIDIA RTX 3050 - R$ 1700</option>
+                            <option value="NVIDIA RTX 3060" data-preco="2200">NVIDIA RTX 3060 - R$ 2200</option>
+                        </select>
+                    </div>
+                    <div class="componente">
+                        <label for="personalizada-armazenamento">Armazenamento:</label>
+                        <select id="personalizada-armazenamento" name="personalizada-armazenamento" onchange="calcularPreco()">
+                            <option value="">Selecione</option>
+                            <option value="512GB SSD" data-preco="700">512GB SSD - R$ 700</option>
+                            <option value="1TB HDD" data-preco="400">1TB HDD - R$ 400</option>
+                            <option value="1TB SSD" data-preco="1200">1TB SSD - R$ 1200</option>
+                        </select>
+                    </div>
+                    <div class="preco-total" id="preco-total">Preço Total: R$ 0</div>
+                    <button type="button" onclick="confirmarConfiguracao('personalizada')">Confirmar Configuração</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 BlackNova PCs. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function mostrarConfigurador(tipo) {
+            // Esconde todos os formulários
+            document.querySelectorAll('.configurador').forEach(form => form.style.display = 'none');
+
+            // Mostra o formulário específico
+            document.getElementById(tipo + '-configurador').style.display = 'block';
+        }
+
+        function calcularPreco() {
+            let total = 0;
+
+            // Soma os preços dos componentes selecionados
+            const processador = document.getElementById('personalizada-processador');
+            const placaMae = document.getElementById('personalizada-placa-mae');
+            const ram = document.getElementById('personalizada-ram');
+            const gpu = document.getElementById('personalizada-gpu');
+            const armazenamento = document.getElementById('personalizada-armazenamento');
+
+            if (processador.value) total += parseFloat(processador.options[processador.selectedIndex].dataset.preco) || 0;
+            if (placaMae.value) total += parseFloat(placaMae.options[placaMae.selectedIndex].dataset.preco) || 0;
+            if (ram.value) total += parseFloat(ram.options[ram.selectedIndex].dataset.preco) || 0;
+            if (gpu.value) total += parseFloat(gpu.options[gpu.selectedIndex].dataset.preco) || 0;
+            if (armazenamento.value) total += parseFloat(armazenamento.options[armazenamento.selectedIndex].dataset.preco) || 0;
+
+            // Atualiza o preço total na tela
+            document.getElementById('preco-total').innerText = `Preço Total: R$ ${total.toFixed(2)}`;
+        }
+
+        function confirmarConfiguracao(tipo) {
+            alert(`Configuração ${tipo} confirmada!`);
+            // Aqui você pode adicionar a lógica para salvar a configuração ou direcionar para a próxima etapa
+        }
+    </script>
+</body>
+</html>

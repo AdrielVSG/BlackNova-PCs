@@ -251,4 +251,17 @@ footer {
 .comprar-btn:hover {
     background-color: #32CD32; /* Cor mais escura ao passar o mouse */
 }
+/* style.css */
 
+/* Cor dos links normais */
+a {
+    color: #ff4081; /* Cor do link normal */
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+/* Cor dos links quando o mouse passa por cima (hover) */
+a:hover {
+    color: #0056b3; /* Cor do link ao passar o mouse */
+}
+
+/* Cor dos links visitados */
