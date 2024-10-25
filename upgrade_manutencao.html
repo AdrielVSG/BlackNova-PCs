@@ -29,16 +29,20 @@
         }
 
         .opcoes-upgrade {
-            margin: 20px;
+            margin: 20px auto; /* Centraliza horizontalmente */
+            max-width: 600px; /* Define uma largura máxima */
+            text-align: center; /* Centraliza o texto dentro da seção */
         }
 
         .opcao {
             background-color: #222; /* Fundo das opções */
             border-radius: 8px;
-            margin: 15px 0;
+            margin: 15px auto; /* Centraliza o bloco horizontalmente */
             padding: 20px;
             cursor: pointer;
             transition: background-color 0.3s;
+            max-width: 500px; /* Define uma largura máxima */
+            text-align: center; /* Centraliza o conteúdo dentro do bloco */
         }
 
         .opcao:hover {
@@ -47,6 +51,7 @@
 
         .componente {
             margin-bottom: 15px;
+            text-align: left; /* Mantém os elementos de formulário alinhados à esquerda */
         }
 
         label {
@@ -99,7 +104,7 @@
             <h1>BlackNova PCs</h1>
             <nav>
                 <ul>
-                    <li><a href="index.html">Voltar Para Opções de Montagem</a></li>
+                    <li><a href="montagem.html">Voltar Para Opções de Montagem</a></li>
                 </ul>
             </nav>
         </div>
@@ -146,12 +151,10 @@
 
     <script>
         function calcularPreco() {
-            // Como não há preços específicos para upgrade, você pode personalizar esse cálculo se necessário
             let total = 0;
             const upgradeOpcoes = document.getElementById('upgrade-opcoes');
 
             if (upgradeOpcoes.value) {
-                // Aqui você pode adicionar lógica para ajustar o preço com base no tipo de upgrade
                 total += parseFloat(upgradeOpcoes.options[upgradeOpcoes.selectedIndex].dataset.preco) || 0;
             }
 
@@ -168,8 +171,8 @@
             }
 
             alert(`Upgrade confirmado! Opção: ${upgradeOpcoes}. Detalhes: ${detalhes}`);
-            // Aqui você pode adicionar a lógica para prosseguir com a compra ou registro do upgrade
         }
     </script>
 </body>
 </html>
+
